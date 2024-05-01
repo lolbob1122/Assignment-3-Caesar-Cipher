@@ -1,8 +1,8 @@
 
-message = list(input('Type your message:'))
+message = str(input('Type your message:'))
 code = ['t', 'e', 's', 't']
 print(message)
-for i in message:
-    code[i] = chr(ord(message[i]) + 3)
+for ch in message:
+    code = chr(ord(ch) + 3)
 
 print(str(code))
