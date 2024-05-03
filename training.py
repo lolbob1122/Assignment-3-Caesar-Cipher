@@ -1,4 +1,4 @@
-table =[]
+table = []
 with open("Assignment-3-Caesar-Cipher\\ch-freq-en.txt") as f:
     for line in f:    
 
