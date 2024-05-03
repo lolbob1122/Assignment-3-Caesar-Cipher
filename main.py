@@ -1,11 +1,24 @@
-chfreq = []
+freq =[]
+with open("Assignment-3-Caesar-Cipher\\ch-freq-en.txt") as f:
+    for line in f:    
+        freq.append(line.split())
+total_freq = sum(float(item[1]) for item in freq)
+norm_freq = [[item[0], round(float(item[1])/ total_freq, 6) ] for item in freq]
+freq.sort()
+##print(freq)       ##DEBUG
+##print(norm_freq)  ##DEBUG
 
-# Read our data file
-with open('ch-freq-en.txt', 'r') as file:
-    for line in file:
-        
-        words = line.split()
+def readCode(filepath):
+    with open(str(filepath)) as f:
+        for line in f:
+            lines = line.strip('')
+            print(list(lines))
 
-        Letter = words[0]
-        Freq = words[1]
+readCode('Assignment-3-Caesar-Cipher\\codes\\secret0.txt')
 
+
+##TO-DO##
+# read code and determine frequencies
+# match english freqs to code freqs 
+# determine shift
+# apply shift
