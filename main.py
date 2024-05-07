@@ -10,7 +10,7 @@ total_en_freq = sum(float(item[1]) for item in en_freq)
 norm_en_freq = [[item[0], round(float(item[1])/ total_en_freq, 6) ] for item in en_freq]
 norm_en_freq.sort()
 ##print(freq)       ##DEBUG
-print(norm_en_freq)  ##DEBUG
+##print(norm_en_freq)  ##DEBUG
 
 def readCode(filepath):
     code_freq = []
@@ -21,11 +21,13 @@ def readCode(filepath):
     for i in alphabet:
         print(letters_only.count(i))
         code_freq.append(letters_only.count(i))
-    ## print(code_freq) ## Debug
-    total_code_freq = sum(item for item in code_freq)
+    print(code_freq) ## Debug
+    total_code_freq = sum()
     print(total_code_freq)
-    norm_code_freq = [ round(float(item)/total_code_freq, 6) for item in en_freq]
+    norm_code_freq = [round((item)/total_code_freq, 6) for item in en_freq]
     print(norm_code_freq)
+
+
 readCode('Assignment-3-Caesar-Cipher\\codes\\secret0.txt')
 
 
