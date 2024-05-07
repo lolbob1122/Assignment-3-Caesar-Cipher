@@ -9,3 +9,4 @@ norm_table = [[item[0], round(float(item[1])/ total_freq, 6) ] for item in table
 table.sort()
 print(table)
 print(norm_table)
+
