@@ -1,12 +1,9 @@
-table = []
-with open("Assignment-3-Caesar-Cipher\\ch-freq-en.txt") as f:
-    for line in f:    
+import string
 
-        table.append(line.split())
+code = [['A', 0.2], ["B", 0.1], ['C', 0.3], ['D', 0.4]]
+freq = [['A', 0.1], ["B", 0.3], ['C', 0.4], ['D', 0.2]]
 
-total_freq = sum(float(item[1]) for item in table)
-norm_table = [[item[0], round(float(item[1])/ total_freq, 6) ] for item in table]
-table.sort()
-print(table)
-print(norm_table)
-
+for i in range(len(code)):
+    smallestSum = float('inf')
+    SumDiff = sum(round(abs(code[i][1] - freq[j][1]), 6) for j in range(len(code)))
+    print(SumDiff)    
