@@ -1,9 +1,22 @@
+import re
 import string
 
-code = [['A', 0.2], ["B", 0.1], ['C', 0.3], ['D', 0.4]]
-freq = [['A', 0.1], ["B", 0.3], ['C', 0.4], ['D', 0.2]]
+filepath = 'Assignment-3-Caesar-Cipher\\codes\\secret0.txt'
+shift = int(input('shift:'))
+testl = []
+with open(filepath) as inputtext:
+    text = inputtext.read()
 
-for i in range(len(code)):
-    smallestSum = float('inf')
-    SumDiff = sum(round(abs(code[i][1] - freq[j][1]), 6) for j in range(len(code)))
-    print(SumDiff)    
+for i in text:
+    print(i)
+    if i.isalpha() and i.islower() and shift !=0: 
+        text_shift = chr(((ord(i)+ shift - ord('a')) % 26) + ord('a'))
+        testl.append(text_shift)
+    elif i.isalpha() and i.isupper() and shift !=0: 
+        text_shift = chr(((ord(i)+ shift - ord('A')) % 26) + ord('A'))
+        testl.append(text_shift)
+    else:
+        testl.append(i)
+text_shifted = ''.join(testl)    
+print(text_shifted)
+
