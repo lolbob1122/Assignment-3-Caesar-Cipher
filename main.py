@@ -8,18 +8,12 @@ def readCode(filepath):
         text = f.read()
     letters_only = re.sub(r'[^a-zA-Z]', '', text)
     letters_only = letters_only.upper()
-    ##print(list(letters_only)) ##DEBUG
     for i in alphabet:
-        ## print(letters_only.count(i)) ## DEBUG
         code_freq.append(letters_only.count(i))  ### find frequency of each letter
-    #print(code_freq) ##DEBUG
     total_code_freq = sum(int(item) for item in code_freq) ### find total frequency
-    #print(total_code_freq) ##DEBUG
     norm_code_freq = [(float(code_freq[i]) / total_code_freq) for i in range(len(code_freq))] ## find norm freq
-    #print(norm_code_freq) ##DEBUG
     return norm_code_freq
 def findShift(freqShifted):
-    ## print(alphabet) ##DEBUG
     en_freq =[]
     with open("Assignment-3-Caesar-Cipher\\ch-freq-en.txt") as f:
         for line in f:    
@@ -28,8 +22,6 @@ def findShift(freqShifted):
     norm_en_freq = [[item[0], round(float(item[1])/ total_en_freq, 6) ] for item in en_freq] ### find normalized frequncy
     norm_en_freq.sort() ### sort the list 
     alphabet, norm_en_freq = zip(*norm_en_freq) 
-    ##print(freq)       ##DEBUG
-    ##print(norm_en_freq)  ##DEBUG
     shift = 0
     smallestDiff = float('inf')
     for j in range(len(freqShifted)):
@@ -37,17 +29,12 @@ def findShift(freqShifted):
         if SumDiff < smallestDiff:
             smallestDiff = SumDiff
             shift = j
-            ##print(SumDiff) ##DEBUG
-            ##print(shift) ##DEBUG
-    #print(shift) ##DEBUG
     return shift
 def cipher(shift, filepath):
     testl = []
     with open(filepath) as inputtext:
         text = inputtext.read()
-
     for i in text:
-        #print(i)
         if i.isalpha() and i.islower() and shift !=0: 
             text_shift = chr(((ord(i)+ shift - ord('a')) % 26) + ord('a'))
             testl.append(text_shift)
@@ -57,12 +44,9 @@ def cipher(shift, filepath):
         else:
             testl.append(i)
     text_shifted = ''.join(testl)    
-    #print(text_shifted) ##DEBUG
     output_name = input('What would you like to call your decoded secret?:')
     with open(output_name, 'w') as out:
         out.write(text_shifted)
-     
-
 while running:
     deCode = input("Do you want to (de)code a file (Y/N)")
     if deCode == 'N' or deCode == 'n':
@@ -82,15 +66,3 @@ while running:
     else:
         print('\nplease enter Y to (de)code a file or N to (de)code a text input')
         continue
-
-    ##TO-DO##
-    # read code and determine frequencies
-    # match english freqs to code freqs 
-    # determine shift
-    # apply shift
-    #  Loop over all input ‘secret’ files, and
-    #  Read the entire file contents into a string ‘secret’
-    #  Determine the correct deciphering key using the findshift() function
-    #  Decipher the encrypted text using the found key
-    #  Store the deciphered text in a new file
-    #  Print the deciphering key, the original filename, and the new filename
