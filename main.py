@@ -25,7 +25,7 @@ def findShift(freqShifted):
     shift = 0
     smallestDiff = float('inf')
     for j in range(len(freqShifted)):
-        SumDiff = sum(round(abs(norm_en_freq[i] - freqShifted[i-j]), 6) for i in range(len(freqShifted)))
+        SumDiff = sum((abs(norm_en_freq[i] - freqShifted[i-j])) for i in range(len(freqShifted)))
         if SumDiff < smallestDiff:
             smallestDiff = SumDiff
             shift = j

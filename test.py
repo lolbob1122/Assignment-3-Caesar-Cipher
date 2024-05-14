@@ -1,4 +1,5 @@
-def findFreq(filepath):
-    codeFreq = []
-    with open(f'{filepath}') as f:
-        for line in f:
+filepath = input('please input filepath:')
+
+with open(str(filepath), 'w') as file:
+
+
