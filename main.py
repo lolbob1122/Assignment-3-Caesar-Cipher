@@ -50,11 +50,6 @@ def cipher(shift, filepath):
 while running:
     deCode = input("Do you want to (de)code a file (Y/N)")
     if deCode == 'N' or deCode == 'n':
-        # code = input('Please type the text you wish to be ciphered:')
-        # shift = int(input('Please enter the shift:'))
-        # filename = str(input('Please give your output file a name:'))
-        ## write a file with path filename that is used by cipher for both the read and then the write
-        # cipher(shift, filename)
         running = False
         break
     elif deCode == 'y' or deCode == 'Y':
