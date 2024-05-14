@@ -15,7 +15,7 @@ def readCode(filepath):
     #print(code_freq) ##DEBUG
     total_code_freq = sum(int(item) for item in code_freq) ### find total frequency
     #print(total_code_freq) ##DEBUG
-    norm_code_freq = [round(float(code_freq[i]) / total_code_freq, 6) for i in range(len(code_freq))] ## find norm freq
+    norm_code_freq = [(float(code_freq[i]) / total_code_freq) for i in range(len(code_freq))] ## find norm freq
     #print(norm_code_freq) ##DEBUG
     return norm_code_freq
 def findShift(freqShifted):
